@@ -1,7 +1,7 @@
 import Axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: import.meta.env.VITE_APP_REGION,
+  baseURL: import.meta.env.VITE_API_URL,
 });
 
 const getToken = () => localStorage.getItem("accessToken");

@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, PropsWithChildren, ReactElement } from "react";
 import { FieldValues, useForm, UseFormRegister } from "react-hook-form";
 import Input from "../../components/Input";
 
 export interface FormLazyProps {
-  children: React.ReactNode;
+  children: ReactElement;
   onSubmit: () => void;
 }
 
@@ -15,11 +15,14 @@ export const FormLazy: FC<FormLazyProps> = ({ children, onSubmit }) => {
   const { register, handleSubmit } = useForm();
 
   const renderChildren = () => {
-    return React.Children.map(children, (child: any) => {
-      return React.cloneElement(child, {
-        register,
-      });
-    });
+    return React.Children.map(
+      children,
+      (child: ReactElement<PropsWithChildren<FieldsProps>>) => {
+        return React.cloneElement(child, {
+          register,
+        });
+      }
+    );
   };
 
   return (
