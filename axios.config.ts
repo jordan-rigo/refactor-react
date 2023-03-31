@@ -1,7 +1,7 @@
 import Axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: "https://petstore3.swagger.io/api/v3",
+  baseURL: import.meta.env.VITE_APP_REGION,
 });
 
 const getToken = () => localStorage.getItem("accessToken");
@@ -51,7 +51,8 @@ AXIOS_INSTANCE.interceptors.response.use(
     const originalConfig = err.config;
 
     if (err.response) {
-      console.log({ hiba: err });
+      console.log({ err });
+
       if (err.response.status === 401 && !originalConfig._retry) {
         originalConfig._retry = true;
 

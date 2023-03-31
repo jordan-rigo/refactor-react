@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { lazily } from "react-lazily";
 
 export interface StaticFormsProps {
