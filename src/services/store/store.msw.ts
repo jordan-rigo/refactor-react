@@ -20,7 +20,7 @@ import {
 } from '@faker-js/faker'
 
 export const getGetInventoryMock = () => ({
-        'clfmjk2480000j0uh9wwecwfm': faker.datatype.number({min: undefined, max: undefined})
+        'clfykdygk0000qsi01s2f6zeb': faker.datatype.number({min: undefined, max: undefined})
       })
 
 export const getPlaceOrderMock = () => ({id: faker.helpers.arrayElement([faker.datatype.number({min: undefined, max: undefined}), undefined]), petId: faker.helpers.arrayElement([faker.datatype.number({min: undefined, max: undefined}), undefined]), quantity: faker.helpers.arrayElement([faker.datatype.number({min: undefined, max: undefined}), undefined]), shipDate: faker.helpers.arrayElement([`${faker.date.past().toISOString().split('.')[0]}Z`, undefined]), status: faker.helpers.arrayElement([faker.helpers.arrayElement(['placed','approved','delivered']), undefined]), complete: faker.helpers.arrayElement([faker.datatype.boolean(), undefined])})

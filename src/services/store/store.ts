@@ -27,7 +27,7 @@ import type {
 import type {
   GetInventory200,
   Order
-} from '../../model'
+} from '.././model'
 import { customInstance } from '../../../axios.config';
 import type { ErrorType } from '../../../axios.config';
 
