@@ -27,7 +27,7 @@ export const FormLazy: FC<FormLazyProps> = ({ children, onSubmit }) => {
 
   return (
     <div>
-      <h1>Ez a magyar 1</h1>
+      <h1>This is hun region lazily loaded</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         {renderChildren()}

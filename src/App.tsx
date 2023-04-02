@@ -6,9 +6,14 @@ import viteLogo from "/vite.svg";
 import { useAddPet, useFindPetsByStatus } from "./services/pet/pet";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import BasicForm from "./BasicForm";
+import FormFactory from "./FormFactory/FormFactory";
+import regionConfigs from "./FormFactory/config";
 
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isBasicFormVisible, setIsBasicFormVisible] = useState(false);
+  const [isFormFactoryVisible, setisFormFactoryVisible] = useState(false);
 
   const { data, isError, isLoading, refetch } = useFindPetsByStatus(
     {
@@ -90,9 +95,27 @@ function App() {
       <button onClick={handleLogin}>Login</button>
       <button onClick={handleCreatePet}>Add Pet</button>
 
-      <button onClick={() => setIsFormVisible(true)}>Show form</button>
+      <button onClick={() => setisFormFactoryVisible(true)}>
+        Show Form factory
+      </button>
+
+      <button onClick={() => setIsFormVisible(true)}>
+        Show Lazily laod form
+      </button>
+
+      <button onClick={() => setIsBasicFormVisible(true)}>
+        Show basic form
+      </button>
+
+      {isFormFactoryVisible && (
+        <FormFactory
+          onSubmit={(data: any) => console.log(data)}
+          form={regionConfigs["us"]}
+        />
+      )}
 
       {isFormVisible && <Form />}
+      {isBasicFormVisible && <BasicForm />}
     </div>
   );
 }

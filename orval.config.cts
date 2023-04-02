@@ -3,7 +3,7 @@ module.exports = {
     output: {
       mode: "tags-split",
       target: "src/services",
-      schemas: "src/model",
+      schemas: "src/services/model/",
       client: "react-query",
       mock: true,
       override: {
